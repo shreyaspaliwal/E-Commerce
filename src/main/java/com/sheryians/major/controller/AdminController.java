@@ -25,6 +25,8 @@ import com.sheryians.major.service.ProductService;
 @Controller
 public class AdminController {
 	
+	public static String uploadDir = "/src/main/resources/static/productImages";
+	
 	@Autowired
 	CategoryService categoryService;
 	
@@ -100,7 +102,7 @@ public class AdminController {
 		if(!file.isEmpty()) {
 			imageUUID = file.getOriginalFilename();
 			Path fileNameAndPath = Paths.get(uploadDir, imageUUID);
-			Files.write(fileNameAndPath, file.getBytes();
+			Files.write(fileNameAndPath, file.getBytes());
 		}
 		else {
 			imageUUID = imgName;
