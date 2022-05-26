@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.sheryians.major.global.GlobalData;
 import com.sheryians.major.model.Role;
 import com.sheryians.major.model.User;
 import com.sheryians.major.repository.RoleRepository;
@@ -32,6 +33,7 @@ public class LoginController {
 	
 	@GetMapping("/login")
 	public String login() {
+		GlobalData.cart.clear();
 		return "login";
 	}
 	
