@@ -48,11 +48,11 @@ public class GoogleOAuth2SuccessHandler implements AuthenticationSuccessHandler 
 			user.setLastName(token.getPrincipal().getAttributes().get("family_name").toString());
 			user.setEmail(email);
 			List<Role> roles = new ArrayList<>();
-			Optional<Role> optionalRole = roleRepository.findById(2);
-			if(optionalRole.isPresent()) {
-				roles.add(roleRepository.findById(2).get());
-			}
-			//roles.add(roleRepository.findById(2).get());
+			//Optional<Role> optionalRole = roleRepository.findById(2);
+			//if(optionalRole.isPresent()) {
+			//	roles.add(roleRepository.findById(2).get());
+			//}
+			roles.add(roleRepository.findById(2).get());
 			user.setRoles(roles);
 			userRepository.save(user);
 		}
