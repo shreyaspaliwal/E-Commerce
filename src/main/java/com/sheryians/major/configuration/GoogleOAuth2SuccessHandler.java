@@ -3,6 +3,7 @@ package com.sheryians.major.configuration;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -47,7 +48,11 @@ public class GoogleOAuth2SuccessHandler implements AuthenticationSuccessHandler 
 			user.setLastName(token.getPrincipal().getAttributes().get("family_name").toString());
 			user.setEmail(email);
 			List<Role> roles = new ArrayList<>();
-			roles.add(roleRepository.findById(2).get());
+			Optional<Role> optionalRole = roleRepository.findById(2);
+			if(optionalRole.isPresent()) {
+				roles.add(roleRepository.findById(2).get());
+			}
+			//roles.add(roleRepository.findById(2).get());
 			user.setRoles(roles);
 			userRepository.save(user);
 		}

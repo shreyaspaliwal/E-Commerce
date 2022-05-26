@@ -13,10 +13,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class CustomUserDetails extends User implements UserDetails {
 
-	public CustomUserDetails(Integer id, @NotEmpty String firstName, String lastName,
-			@NotEmpty @Email(message = "{errors.invalid_email}") String email, @NotEmpty String password,
-			List<Role> roles) {
-		super(id, firstName, lastName, email, password, roles);
+	public CustomUserDetails(User user) {
+		super();
 		
 	}
 

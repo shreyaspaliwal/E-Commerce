@@ -9,14 +9,15 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
-//@Entity
-//@Table(name="users")
+@Entity
+@Table(name="users")
 public class User {
 
 	public User(Integer id, @NotEmpty String firstName, String lastName,
@@ -29,6 +30,10 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.roles = roles;
+	}
+	
+	public User() {
+		super();
 	}
 
 	@Id
@@ -51,9 +56,9 @@ public class User {
 	
 	@ManyToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
 	@JoinTable(
-			name="user_role", 
-			joinColumns = {@JoinColumn(name="USER_ID", referencedColumnName="ID")}, 
-			inverseJoinColumns = {@JoinColumn(name="ROLE_ID", referencedColumnName="ID")}
+			name="user_role",
+			joinColumns = {@JoinColumn(name="USER_ID", referencedColumnName="ID")}
+			//inverseJoinColumns = {@JoinColumn(name="ROLE_ID", referencedColumnName = "ID")}
 			)
 	private List<Role> roles;
 
