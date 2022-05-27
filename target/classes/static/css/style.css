@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html {
+  --header1: calc(2rem + 1vw);
+  /* We can declare variables by starting it with -- and we can put this variable anywhere in this sheet */
+  --header2: calc(3.5rem + 1vw);
+  /*This calc() will calculate the screen size and adjust the size of the quantity acc. to quantity mentioned after + sign*/
+}
+
+h2 {
+  font-size: var(--header2);
+  font-family: 'Great Vibes', cursive;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button{
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5rem;
+  padding: 1.5rem 5rem;
+  background-color: #4c6e97;
+  border: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+  transition: /*all*/ background 0.5s ease-in-out;
+}
+ 
+ button:hover {
+  background-color: rgb(23, 36, 51);
+}
+ 
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), transparent),
+    url("/images/cover.jpg");
+  min-height: 90vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.hero-intro {
+  flex: 2 1 40rem;
+  text-align: center;
+}
+
+.hero-intro h2 {
+  padding-top: 3rem;
+  color: white;
+}
