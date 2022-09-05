@@ -12,9 +12,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.sheryians.major.service.CustomUserDetailsService;
+import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 
 @Configuration
 @EnableWebSecurity
+@EnableEncryptableProperties
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
